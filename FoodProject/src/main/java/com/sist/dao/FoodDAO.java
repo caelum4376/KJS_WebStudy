@@ -53,7 +53,7 @@ public class FoodDAO {
 	// 드라이버 설치는 1번만 수행
 	public FoodDAO() {
 		try {
-			getClass().forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (Exception e) {}
 	}
 	
@@ -69,7 +69,7 @@ public class FoodDAO {
 	public void disConnection() {
 		try {
 			if (ps != null) ps.close();
-			if (conn != null) ps.close();
+			if (conn != null) conn.close();
 		} catch (Exception e) {}
 	}
 	
@@ -120,6 +120,62 @@ public class FoodDAO {
 		}
 	}
 	
+	// 1-1. 실제 맛집 정보
+	/*
+	 * fno NUMBER,
+	 * cno NUMBER,
+	 * name varchar2(100) CONSTRAINT fh_name_nn NOT NULL,
+	 * score NUMBER(2,1),
+	 * address varchar2(300) CONSTRAINT fh_address_nn NOT NULL,
+	 * phone varchar2(20) CONSTRAINT fh_phone_nn NOT NULL,
+	 * TYPE varchar2(30) CONSTRAINT fh_type_nn NOT NULL,
+	 * price varchar2(30),
+	 * parking varchar2(30),
+	 * menu clob,
+	 * good NUMBER,
+	 * soso NUMBER,
+	 * bad NUMBER,
+	 * poster varchar2(4000) CONSTRAINT fh_poster_nn NOT NULL,
+	 * time varchar2(20)
+	 */
+	public void foodDataInsert(FoodVO vo) {
+		try {
+			// 1. 오라클 연결
+			getConnection();
+			
+			// 2. SQL문장 제작
+			String sql = "INSERT INTO food_house VALUES("
+						+"fh_fno_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			
+			// 3. 오라클 전송
+			ps = conn.prepareStatement(sql);
+			
+			// 4. ?에 값을 넣는다
+			ps.setInt(1, vo.getCno());
+			ps.setString(2, vo.getName());
+			ps.setDouble(3, vo.getScore());
+			ps.setString(4, vo.getAddress());
+			ps.setString(5, vo.getPhone());
+			ps.setString(6, vo.getType());
+			ps.setString(7, vo.getPrice());
+			ps.setString(8, vo.getParking());
+			ps.setString(9, vo.getTime());
+			ps.setString(10, vo.getMenu());
+			ps.setInt(11, vo.getGood());
+			ps.setInt(12, vo.getSoso());
+			ps.setInt(13, vo.getBad());
+			ps.setString(14, vo.getPoster());
+			
+			// 5. 실행요청
+			ps.executeUpdate(); // 자동 커밋
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			disConnection();
+		}
+	}
+	
 	// 2. SELECT => 전체 데이터 읽기 => 30개 (한개당 => CategoryVO)
 	// => Collection, 배열 => 브라우저로 30개를 전송
 	// 브라우저 <==> 오라클 (X)
@@ -131,8 +187,9 @@ public class FoodDAO {
 			getConnection();
 			
 			// 2. SQL문장
-			String sql = "SELECT cno, title, subject, poster "
-						+"FROM food_category";
+			String sql = "SELECT cno, title, subject, poster, link "
+						+"FROM food_category "
+						+"ORDER BY cno";
 			
 			// 3. 오라클 전송
 			ps = conn.prepareStatement(sql);
@@ -149,12 +206,16 @@ public class FoodDAO {
 				String poster = rs.getString(4);
 				poster = poster.replace("#", "&");
 				vo.setPoster(poster);
+				vo.setLink("https://www.mangoplate.com"+rs.getString(5));
 				
 				list.add(vo);
 			}
 			rs.close();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			// 오라클 닫기
+			disConnection();
 		}
 		return list;
 	}

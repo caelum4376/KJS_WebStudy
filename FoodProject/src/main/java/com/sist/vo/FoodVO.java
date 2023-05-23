@@ -2,8 +2,8 @@ package com.sist.vo;
 
 public class FoodVO {
 	private int fno, cno, good, soso, bad;
-	private double core;
-	private String name, address, phone, type, price, parking, time, menu, poster;
+	private double score;
+	private String name, address, phone, type, price, time, parking, menu, poster;
 	public int getFno() {
 		return fno;
 	}
@@ -34,11 +34,11 @@ public class FoodVO {
 	public void setBad(int bad) {
 		this.bad = bad;
 	}
-	public double getCore() {
-		return core;
+	public double getScore() {
+		return score;
 	}
-	public void setCore(double core) {
-		this.core = core;
+	public void setScore(double score) {
+		this.score = score;
 	}
 	public String getName() {
 		return name;
