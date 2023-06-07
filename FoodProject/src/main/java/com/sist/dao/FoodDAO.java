@@ -42,8 +42,8 @@ public class FoodDAO {
 	private PreparedStatement ps; // SQL문장 전송 / 결과값 읽기
 	
 	// mySQL => jdbc:mysql://localhost/mydb
-	private final String URL = "jdbc:oracle:thin:@211.238.142.122:1521:XE";
-//	private final String URL = "jdbc:oracle:thin:@localhost:1521:XE";
+//	private final String URL = "jdbc:oracle:thin:@211.238.142.122:1521:XE";
+	private final String URL = "jdbc:oracle:thin:@localhost:1521:XE";
 	
 	// DAO객체를 한개만 사용이 가능하게 만든다
 	private static FoodDAO dao; // 싱글턴 패턴
