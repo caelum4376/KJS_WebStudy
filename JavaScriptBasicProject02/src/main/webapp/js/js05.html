@@ -1,0 +1,42 @@
+<!-- 
+		속성=멤버변수
+		메소드
+		배열
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=()=> {
+	let calc = {
+		x:10,
+		y:20,
+		
+		// 함수
+		sum1:()=> this.x+this.y,
+		sum2:function() {
+			return this.x+this.y
+		},
+		
+		// 배열
+		name:["A", "B", "C"]
+	}
+	
+	document.write("x = " + calc.x + "<br>")
+	document.write("y = " + calc.y + "<br>")
+	let hap1 = calc.sum1()
+	let hap2 = calc.sum2()
+	document.write("hap = " + hap1 + ", " + hap2 + "<br>")
+	for (let n of calc.name) {
+		document.write(n + "<br>")	
+	}
+	
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

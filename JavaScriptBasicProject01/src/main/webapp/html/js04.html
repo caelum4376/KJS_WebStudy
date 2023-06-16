@@ -1,0 +1,99 @@
+<!-- 
+      비교연산자
+      ===   , !== , < , > , <= , <=  (결과값은 boolean)
+       -> 브라우저 안에서만 작업할 수 있음
+       -> 자바와 자바스크립트는 연결 불가능
+          -------------
+           호환 => ArraryList = [] / VO = {} => JSON을 통해 연결
+                 Restful (다른 시스템과 연결)
+
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function() {
+	// 비교연산자 => 숫자, 문자열, 날짜도 동일하게 사용한다
+	let a=10;
+	let b=5;
+	console.log("a===b : " + (a===b)) // false
+	console.log("a!==b : " + (a!==b)) // true
+	console.log("a<b : " + (a<b)) // false
+	console.log("a>b : " + (a>b)) // true
+	console.log("a<=b : " + (a<=b)) // false
+	console.log("a>=b : " + (a>=b)) // true
+	
+	// 가 < 나 (가나다라 순서)
+	// A < B < C ... (알파벳 순서)
+	let c="Hello"
+	let d="JavaScript" 
+	console.log("c===d : " + (c===d)) // false
+	console.log("c!==d : " + (c!==d)) // true
+	console.log("c<d : " + (c<d)) // true
+	console.log("c>d : " + (c>d)) // false
+	console.log("c<=d : " + (c<=d)) // true
+	console.log("c>=d : " + (c>=d)) // false
+	/*
+		유효성 검사 (자바스크립트를 이요앻서 자바로 전송 전에 처리)
+		if (name==="") => NOT NULL
+	*/	
+	/*
+		논리연산자 (&&, ||)
+		(조건) && (조건) ===> 범위 포함, 기간 포함 (예약 가능한 날)
+		------    ------
+		   |         |
+		   -----------
+		        |
+		      결과값
+		(조건) || (조건) ===> 범위 미포함, 기간 미포함 (예약이 불가능)
+		------    ------
+		   |         |
+		   -----------
+		        |
+		      결과값
+		
+		&& => 직렬연산자 (조건 2개가 true일 경우 수행)
+		|| => 병렬연산자 (조건 1개 이상이 true일 경우 수행)
+		
+		----------------------------------------------
+								&&			||
+		----------------------------------------------
+			true	true		true		true
+		----------------------------------------------
+			true	false		false		true
+		----------------------------------------------
+			false	true		false		true
+		----------------------------------------------
+			false	false		false		false
+		----------------------------------------------
+				
+	*/
+	let i=(6>7) && (6===7)
+	console.log("i="+i)
+	
+	i=(6<7) || (6===7)
+	console.log("i="+i)
+	
+	let id="admin"
+	let pwd="1234"
+	
+	let res = id==="admin" && pwd==="1234"
+	console.log("res="+res)
+	
+	// 대입연산자 (=, +=, -=)
+	i=10
+	console.log("i="+i)
+	i+=20
+	console.log("i="+i)
+	i-=20
+	console.log("i="+i)
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>
