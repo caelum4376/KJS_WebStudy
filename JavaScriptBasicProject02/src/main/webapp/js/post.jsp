@@ -132,7 +132,18 @@
   width: 480px;
 }
 h1{
-    text-align: center
+    text-align: center;
+}
+td, th {
+	font-size: 9px;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+a:hover {
+	text-decoration: underline;
+	color: cyan;
 }
 </style>
 <script type="text/javascript">
@@ -149,7 +160,7 @@ let ok = (zip, addr) => {
 	<div class="container">
 		<h1>우편번호 검색</h1>
 		<div class="row">
-			<form method="post" name="frm">
+			<form method=post action="post.jsp">
 			<table class="table">
 				<tr>
 					<td>
@@ -169,7 +180,7 @@ let ok = (zip, addr) => {
 						<th width=80% class="text-center">주소</th>			
 					</tr>
 					<%
-						if (count==0) {
+						if (count==0 || dong=="") {
 					%>			
 					<tr>
 						<td colspan="2" class="text-center">
@@ -182,12 +193,10 @@ let ok = (zip, addr) => {
 					%>
 					<tr>
 						<td width=20% class="text-center">
-							<%=
-								vo.getZipcode()
-							%>
+							<%= vo.getZipcode() %>
 						</td>
 						<td width=80%>
-							<a href="javascript:ok('<%= vo.getZipcode() %>','<%= vo.getAddress() %>')"></a>
+							<a href="javascript:ok('<%=vo.getZipcode() %>','<%=vo.getAddress() %>')"><%=vo.getAddress() %></a>
 						</td>
 					</tr>
 					<%
