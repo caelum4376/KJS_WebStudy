@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Document</title>
+<script type="text/javascript">
+window.onload=function() {
+    let sb = document.getElementById("sendBtn")
+    sb.onclick = ()=> {
+        alert("데이터 전송 완료")
+    }
+    let cb = document.getElementById("canBtn")
+    cb.onclick=()=> {
+        alert("전송 취소")
+    }
+
+    document.getElementById("tempBtn").onclick=()=> {
+        alert("임시버튼 클릭")
+    }
+}
+</script>
+</head>
+<body>
+    <input type="button" value="전송" id="sendBtn">
+    <input type="button" value="취소" id="canBtn">
+    <input type="button" value="임시" id="tempBtn">
+</body>
+</html>

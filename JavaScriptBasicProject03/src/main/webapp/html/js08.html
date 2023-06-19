@@ -1,0 +1,41 @@
+<!--
+        mouse관련 : mouseover / mouseout
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Document</title>
+<style type="text/css">
+img {
+    width: 120px;
+    height: 150px;
+}
+</style>
+<script type="text/javascript">
+window.onload = ()=> {
+    let im = document.querySelectorAll("img")
+    for (let ii of im) {
+        ii.onmouseover = ()=> {
+            ii.style.cursor = "pointer"
+            ii.style.border = "2px solid green"
+        }
+
+        ii.onmouseout = ()=> {
+            ii.style.cursor = "none"
+            ii.style.border = "none"
+        }
+
+    }
+}
+</script>
+</head>
+<body>
+    <img src="../img/cgv1.jpg">
+    <img src="../img/cgv2.jpg">
+    <img src="../img/cgv3.jpg">
+    <img src="../img/cgv4.jpg">
+    <img src="../img/cgv5.jpg">
+    <img src="../img/cgv6.jpg">
+    <img src="../img/cgv7.jpg">
+</body>
+</html>

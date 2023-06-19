@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Document</title>
+<style type="text/css">
+    .container{
+        margin-top: 50px;
+    }
+    .row {
+        margin: 0px auto;
+        width: 500px;
+    }
+    h1{
+        text-align: center
+    }
+</style>
+<script type="text/javascript">
+    let acc=document.querySelector("#account")
+    acc.onchange= function() {
+        let val = acc.value
+        // alert(val)
+        let price = document.querySelector("#price")
+        // alert(price.textContent)
+        let total = Number(val) * Number(price.textContent)
+        document.querySelector("#total").innerHTML = 
+                                "<font color=red>" + total + "원</font>"
+    }
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1> Select태그 = onchange </h1>
+        <div class="row">
+            <table class="table">
+                <tr>
+                    <td>
+                        수량 : <select id="account">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>가격 : <span id="price">30000</span></td>
+                </tr>
+                <tr>
+                    <td>총금액 : <span id="total"></span></td>
+                </tr>
+            </table>            
+        </div>
+    </div>
+</body>
+</html>

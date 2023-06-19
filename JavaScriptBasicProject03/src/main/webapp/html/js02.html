@@ -1,0 +1,39 @@
+<!--
+        문자객체 조작(345page)
+        -------- codepen.io
+        1) 글자 조작
+             innerHTML : HTML이 적용 => JQuery  => html()
+             textContent => 순수하게 문자열 => text()
+        2) 스타일 조작
+            태그.style.속성 = 값
+            - => 대문자처리
+            background
+        3) 속성 조작
+           --------- 메뉴
+        --------------------
+        이벤트
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Document</title>
+<script>
+    win.onload = function() {
+        let div = document.querySelectorAll("div")
+        for (let d of div) {
+            d.style.width = "100px"
+            d.style.height = "100px"
+            d.style.border = "1px solid red"
+            d.style.marginTop = "5px"
+        }
+    }
+</script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

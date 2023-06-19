@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Document</title>
+<style type="text/css">
+    .container{
+        margin-top: 50px;
+    }
+    .row {
+        margin: 0px auto;
+        width: 800px;
+        height: 700px;
+    }
+    h1{
+        text-align: center
+    }
+</style>
+<script type="text/javascript">
+window.onload = ()=> {
+    let o = document.getElementById("old")
+    let n = document.getElementById("new")
+    o.width = 350
+    o.width = 420
+    o.style.border = "2px solid red"
+    o.innerHTML = "<img src = ../img/cgv1.jpg style=\"width:100%\">"
+
+    n.width = 350
+    n.width = 420
+    n.style.border = "2px solid blue"
+
+    let i = document.getElementById("old_img")
+    let ii = i.getAttribute("data-img") // attr(속성명)
+    // alert(img)
+
+    let nn = document.getElementById("new_img")
+    nn.setAttribute("src", ii) // attr("속성명", 값)
+}
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1>getAttribute / setAttribute</h1>
+        <div class="col-sm-4">
+            <div id="old"><img src="../img/cgv1.jpg" style="width: 100%" data-img="../img/cgv1.jpg"></div>
+        </div>
+        <div class="col-sm-4">
+            <div id="new"><img src="" id="new_img"></div>
+        </div>
+    </div>
+</body>
+</html>
