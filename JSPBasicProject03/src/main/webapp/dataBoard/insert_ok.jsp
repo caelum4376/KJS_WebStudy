@@ -30,7 +30,10 @@
 	vo.setContent(content);
 	vo.setPwd(pwd);
 	
-	String filename = mr.getOriginalFileName("upload");
+	// getOriginalFileName : 사용자가 보낸 파일이름
+	// String filename = mr.getOriginalFileName("upload");
+	// getFilesystemName : 변경된 파일이름 ex) 파일명(1).jpg
+	String filename = mr.getFilesystemName("upload");
 	if (filename == null) { // 업로드가 안된 상태
 		vo.setFilename("");
 		vo.setFilesize(0);
