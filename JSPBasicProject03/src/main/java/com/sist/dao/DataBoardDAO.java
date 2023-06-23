@@ -186,4 +186,30 @@ public class DataBoardDAO {
 			}
 			return vo;
 		}
+		
+		public List<DataBoardVO> dataBoardTop10() {
+			List<DataBoardVO> list = new ArrayList<DataBoardVO>();
+			try {
+				getConnection();
+				String sql = "SELECT no, name, subject, rownum "
+							+"FROM (SELECT no, name, subject "
+							+"FROM jspDataBoard ORDER BY hit DESC) "
+							+"WHERE rownum <= 10";
+				ps = conn.prepareStatement(sql);
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					DataBoardVO vo = new DataBoardVO();
+					vo.setNo(rs.getInt(1));
+					vo.setName(rs.getString(2));
+					vo.setSubject(rs.getString(3));
+					list.add(vo);
+				}
+				rs.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				disConnection();
+			}
+			return list;
+		}
 }
