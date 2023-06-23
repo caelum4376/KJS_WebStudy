@@ -3,7 +3,7 @@ import java.util.*;
 import java.sql.*;
 import com.sist.vo.*;
 public class DataBoardDAO {
-	// 연결 객체 => Socket
+		// 연결 객체 => Socket
 		private Connection conn;
 		
 		// 송수신 (SQL ==> 결과값(데이터값))
