@@ -13,7 +13,6 @@ import com.sist.dao.*;
 public class DataCollectionManager {
 	
 	public static void main(String[] args) {
-		List<hotelCategoryVO> hcList = new ArrayList<hotelCategoryVO>(); // hotelCategoryVO 클래스 데이터형 list 생성
 		List<hotelVO> hList = new ArrayList<hotelVO>(); // hotelVo 클래스 데이터형 list 생성
 		List<roomVO> rList = new ArrayList<roomVO>(); // roomVO 클래스 데이터형 list 생성
 		hotelDAO dao = hotelDAO.newInstance();
@@ -42,17 +41,13 @@ public class DataCollectionManager {
 					// 카테고리 번호, 타이틀명
 					String hcT = hcTitle.get(j).text().substring(hcTitle.get(j).text().indexOf("/")+2);
 					if (hcT.equals("펜션")) {
-						hcVo.setHcno(1);
-						hcVo.setHcTitle(hcT);
+						hVo.setHcno(1);
 					} else if (hcT.equals("리조트,콘도")) {
-						hcVo.setHcno(2);
-						hcVo.setHcTitle(hcT);
+						hVo.setHcno(2);
 					} else if (hcT.equals("호텔")) {
-						hcVo.setHcno(3);
-						hcVo.setHcTitle(hcT);
+						hVo.setHcno(3);
 					} else if (hcT.equals("기타")) {
-						hcVo.setHcno(4);
-						hcVo.setHcTitle(hcT);
+						hVo.setHcno(4);
 					}
 //					System.out.println(hcVo.getHcno());
 //					System.out.println(hcVo.getHcTitle());
@@ -113,12 +108,7 @@ public class DataCollectionManager {
 					hVo.setHuno(Integer.parseInt(detailLink.substring(detailLink.lastIndexOf("=")+1)));
 //					System.out.println(hVo.getHuno());
 					
-					// 상세보기 - 숙소 종류번호
-					hVo.setHcno(hcVo.getHcno());
-//					System.out.println(hVo.getHcno());
-					
 					// 데이터 저장
-					dao.hotelCategoryInsert(hcVo);
 					dao.hotelInsert(hVo);
 					
 					// 방정보
@@ -181,7 +171,6 @@ public class DataCollectionManager {
 //					rList.add(rVo);
 				}				
 			}
-			System.out.println("숙소카테고리 갯수 " + hcList.size());
 			System.out.println("숙소 갯수" + hList.size());
 			System.out.println("방 갯수" + rList.size());
 				

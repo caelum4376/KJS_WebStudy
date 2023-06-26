@@ -61,7 +61,7 @@ public class hotelDAO {
 	public void hotelCategoryInsert(hotelCategoryVO vo) {
 		try {
 			getConnection();
-			String sql = "INSERT INTO HOTET_CATEGORY VALUES ("
+			String sql = "INSERT INTO HOTEL_CATEGORY VALUES ("
 						+ "?, ?, 2)";
 			ps = conn.prepareStatement(sql);
 			
@@ -82,7 +82,7 @@ public class hotelDAO {
 	public void hotelInsert(hotelVO vo) {
 		try {
 			getConnection();
-			String sql = "INSERT INTO HOTET_DETAIL VALUES ("
+			String sql = "INSERT INTO HOTEL_DETAIL VALUES ("
 						+ "hc_hdno_seq.nextval, ?, ?, ?, ?, ?, ?, ?)";
 			ps = conn.prepareStatement(sql);
 			
