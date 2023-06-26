@@ -13,6 +13,7 @@ import com.sist.dao.*;
 public class DataCollectionManager {
 	
 	public static void main(String[] args) {
+//		List<hotelCategoryVO> hcList = new ArrayList<hotelCategoryVO>(); // hotelCategoryVO 클래스 데이터형 list 생성
 		List<hotelVO> hList = new ArrayList<hotelVO>(); // hotelVo 클래스 데이터형 list 생성
 		List<roomVO> rList = new ArrayList<roomVO>(); // roomVO 클래스 데이터형 list 생성
 		hotelDAO dao = hotelDAO.newInstance();
@@ -71,11 +72,11 @@ public class DataCollectionManager {
 					Elements price = detailDoc.select("table.tblPackageItems tr:nth-child(5n+5)");
 					
 					// 상세정보 - 숙소명
-					hVo.setName(hTitle.get(0).text());
+					hVo.setName(hTitle.get(0).text()!=""?hTitle.get(0).text():"no");
 //					System.out.println(hVo.getName());
 					
 					// 상세정보 - 주소
-					hVo.setAddr(hAddr.get(0).text());
+					hVo.setAddr(hAddr.get(0).text()!=""?hAddr.get(0).text():"no");
 //					System.out.println(hVo.getAddr());
 					
 					// 상세정보 - 이미지
@@ -86,11 +87,11 @@ public class DataCollectionManager {
 							poster.append("^");
 						}
 					}
-					hVo.setPoster(poster.toString());
+					hVo.setPoster(poster.length()!=0?poster.toString():"no");
 //					System.out.println(hVo.getPoster());
 					
 					// 상세정보 - 부대시설
-					hVo.setEtc(hEtc.get(0).text());
+					hVo.setEtc(hEtc.get(0).text()!=""?hEtc.get(0).text():"no");
 //					System.out.println(hVo.getEtc());
 					
 					// 상세보기 - 숙소 정보
@@ -101,12 +102,14 @@ public class DataCollectionManager {
 							content.append("^");
 						}
 					}
-					hVo.setContent(content.toString());
+					hVo.setContent(content.length()!=0?content.toString():"no");
 //					System.out.println(hVo.getContent());
 					
 					// 상세보기 - 숙소 고유번호
-					hVo.setHuno(Integer.parseInt(detailLink.substring(detailLink.lastIndexOf("=")+1)));
+					int huno = Integer.parseInt(detailLink.substring(detailLink.lastIndexOf("=")+1));
+					hVo.setHuno(huno);
 //					System.out.println(hVo.getHuno());
+					
 					
 					// 데이터 저장
 					dao.hotelInsert(hVo);
@@ -119,17 +122,17 @@ public class DataCollectionManager {
 //						System.out.println(rVo.getRname());
 						
 						// 방정원
-						rVo.setPerson(person.get(k).text().substring
-								(person.get(k).text().indexOf("최대인원")+5));
+						rVo.setPerson(person.get(k).text()!=""?person.get(k).text().substring
+								(person.get(k).text().indexOf("최대인원")+5):"no");
 //						System.out.println(rVo.getPerson());
 						
 						// 객실구조
-						rVo.setSturcture(structure.get(k).text().substring
-								(structure.get(k).text().indexOf("객실구조")+5));
+						rVo.setSturcture(structure.get(k).text()!=""?structure.get(k).text().substring
+								(structure.get(k).text().indexOf("객실구조")+5):"no");
 //						System.out.println(rVo.getSturcture());
 						
 						// 특이사항
-						rVo.setSpecial(special.get(k).text());
+						rVo.setSpecial(special.get(k).text()!=""?special.get(k).text():"no");
 //						System.out.println(rVo.getSpecial());
 						
 						// 빈방재고
@@ -141,9 +144,9 @@ public class DataCollectionManager {
 //						System.out.println(rVo.getAccount());
 						
 						// 방가격
-						rVo.setPrice(Integer.parseInt(price.get(k).text().substring
+						rVo.setPrice(price.get(k).text()!=""?Integer.parseInt(price.get(k).text().substring
 								(price.get(k).text().indexOf("주중")+3, price.get(k).text().indexOf("원"))
-								.replace(",", "")));
+								.replace(",", "")):0);
 //						System.out.println(rVo.getPrice());
 						
 						// 방사진
@@ -155,22 +158,25 @@ public class DataCollectionManager {
 								poster2.append("^");
 							}
 						}
-						rVo.setRposter(poster2.toString());
+						rVo.setRposter(poster2.length()!=0?poster2.toString():"no");
 //						System.out.println(rVo.getRposter());
 						
 						// 숙소번호
-						rVo.setHdno(hVo.getHuno());
+						rVo.setHuno(huno);
 //						System.out.println(rVo.getHdno());
 						
 						// 데이터 저장
 						dao.roomInsert(rVo);
+						
+						rList.add(rVo);
 					}
 					
 //					hcList.add(hcVo);
-//					hList.add(hVo);
-//					rList.add(rVo);
+					hList.add(hVo);
+					
 				}				
 			}
+//			System.out.println("숙소카테고리 갯수 " + hcList.size());
 			System.out.println("숙소 갯수" + hList.size());
 			System.out.println("방 갯수" + rList.size());
 				

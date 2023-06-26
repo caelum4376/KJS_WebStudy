@@ -2,7 +2,7 @@ package com.sist.dao;
 
 public class roomVO {
 	private String rname, person, special, rposter, sturcture;
-	private int account, price, hdno;
+	private int account, price, huno;
 	
 	public String getRname() {
 		return rname;
@@ -46,10 +46,11 @@ public class roomVO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public int getHdno() {
-		return hdno;
+	public int getHuno() {
+		return huno;
 	}
-	public void setHdno(int hdno) {
-		this.hdno = hdno;
-	}	
+	public void setHuno(int huno) {
+		this.huno = huno;
+	}
+	
 }

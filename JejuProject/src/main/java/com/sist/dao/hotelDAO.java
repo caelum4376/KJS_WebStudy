@@ -120,10 +120,10 @@ public class hotelDAO {
 			ps.setString(5, vo.getSturcture());
 			ps.setString(6, vo.getSpecial());
 			ps.setString(7, vo.getRposter());
-			ps.setInt(8, vo.getHdno());
+			ps.setInt(8, vo.getHuno());
 			
 			// 실행
-			ps.executeUpdate();
+				ps.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
