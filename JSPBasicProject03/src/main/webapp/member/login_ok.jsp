@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.sist.dao.*, com.sist.vo.*" %>
+    pageEncoding="UTF-8" import="com.sist.dao.*,com.sist.dao.*" %>
 <%
 	String id = request.getParameter("id");
 	String pwd = request.getParameter("pwd");

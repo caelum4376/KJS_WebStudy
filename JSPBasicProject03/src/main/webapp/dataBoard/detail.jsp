@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.sist.dao.*, com.sist.vo.*, java.util.*" %>
+    pageEncoding="UTF-8" import="com.sist.dao.*,com.sist.dao.*, java.util.*" %>
 <%-- 메모리 할당
 	DataBoardDAO dao = new DataBoardDAO()
  --%>

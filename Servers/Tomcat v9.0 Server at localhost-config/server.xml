@@ -163,26 +163,22 @@
       
       
       
-      <Context docBase="jejuTemplate" path="/jejuTemplate" reloadable="true" source="org.eclipse.jst.jee.server:jejuTemplate"/>
       
       
       
       
       
-      <Context docBase="JSPLastProejct" path="/JSPLastProejct" reloadable="true" source="org.eclipse.jst.jee.server:JSPLastProejct"/><Context docBase="JSPMVCFinalProject" path="/JSPMVCFinalProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPMVCFinalProject"/><Context docBase="JSPFinalProject" path="/JSPFinalProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPFinalProject">
+      
+      
+      <Context docBase="FirstProject" path="/FirstProject" reloadable="true" source="org.eclipse.jst.jee.server:FirstProject"/>
+      
+      <Context docBase="JSPFinalProject" path="/JSPFinalProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPFinalProject">
       	<!-- Connection Pool 등록 -->
-		<Resource
-			driverClassName="oracle.jdbc.driver.OracleDriver"
-			url="jdbc:oracle:thin:@211.238.142.122:1521:XE"
-			username="hr"
-			password="happy"
-			maxActive="10"
-			maxIdle="8"
-			maxWaait="-1"
-			name="jdbc/oracle"
-			auth="container"
-			type="javax.sql.DataSource"
-		/>
+		<Resource auth="container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWaait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@211.238.142.122:1521:XE" username="hr"/>
+      </Context>
+      <Context docBase="JSPAjaxProject02" path="/JSPAjaxProject02" reloadable="true" source="org.eclipse.jst.jee.server:JSPAjaxProject02"/>
+      <Context docBase="FirstProjectKJS" path="/FirstProjectKJS" reloadable="true" source="org.eclipse.jst.jee.server:FirstProjectKJS">
+      	<Resource auth="container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWaait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@211.238.142.122:1521:XE" username="hr"/>
       </Context>
       </Host>
     </Engine>

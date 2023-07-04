@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean id="category.do" class="com.sist.model.categoryModel" />
+	<bean id="food_list.do" class="com.sist.model.foodListModel" />
+	<bean id="food_detail.do" class="com.sist.model.foodDetailModel" />
+	<bean id="main.do" class="com.sist.model.MainModel" />
+</beans>
