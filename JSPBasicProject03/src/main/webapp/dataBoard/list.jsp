@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.sist.dao.*,com.sist.dao.*, java.util.*" %>
+    pageEncoding="UTF-8" import="com.sist.dao.*,com.sist.vo.*, java.util.*" %>
 <%@ page import="java.text.*"  %>
 <%
 	// 1. 사용자가 보내준 요청값을 받는다 => page

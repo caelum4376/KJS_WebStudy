@@ -60,7 +60,7 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
-    <Connector connectionTimeout="20000" maxParameterCount="1000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+    <Connector URIEncoding="UTF-8" connectionTimeout="20000" maxParameterCount="1000" port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"
@@ -170,16 +170,17 @@
       
       
       
-      <Context docBase="FirstProject" path="/FirstProject" reloadable="true" source="org.eclipse.jst.jee.server:FirstProject"/>
-      
+      <Context docBase="FirstProject" path="/FirstProject" reloadable="true" source="org.eclipse.jst.jee.server:FirstProject">
+      	<Resource auth="container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWaait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@211.238.142.122:1521:XE" username="hr"/>
+      </Context>
       <Context docBase="JSPFinalProject" path="/JSPFinalProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPFinalProject">
       	<!-- Connection Pool 등록 -->
 		<Resource auth="container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWaait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@211.238.142.122:1521:XE" username="hr"/>
       </Context>
-      <Context docBase="JSPAjaxProject02" path="/JSPAjaxProject02" reloadable="true" source="org.eclipse.jst.jee.server:JSPAjaxProject02"/>
-      <Context docBase="FirstProjectKJS" path="/FirstProjectKJS" reloadable="true" source="org.eclipse.jst.jee.server:FirstProjectKJS">
-      	<Resource auth="container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWaait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@211.238.142.122:1521:XE" username="hr"/>
-      </Context>
+      
+      
+      
+      
       </Host>
     </Engine>
   </Service>
