@@ -29,11 +29,14 @@
 				<td class="text-center">${ vo.id }</td>
 				<td class="text-center">${ vo.name }</td>
 				<td class="text-center">${ vo.rday }</td>
-				<td class="text-center">${ vo.time }</td>
+				<td class="text-center">${ vo.rtime }</td>
 				<td class="text-center">${ vo.inwon }</td>
 				<td class="text-center">
 					<c:if test="${ vo.rok == 'n' }">
-						<span class="btn btn-sm btn-success">승인대기</span>
+						<a href="../adminpage/adminpage_reserve_ok.do?no=${ vo.no }" class="btn btn-sm btn-danger">승인대기</a>
+					</c:if>
+					<c:if test="${ vo.rok == 'y' }">
+						<span class="btn btn-sm btn-success">승인완료</span>
 					</c:if>
 				</td>
 			</tr>

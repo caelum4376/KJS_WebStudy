@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.RequestMapping;
 import com.sist.dao.*;
@@ -171,6 +172,29 @@ public class FoodModel {
 		// 인근 명소, 레시피		
 		request.setAttribute("main_jsp", "../food/food_detail.jsp");
 		CommonModel.commonRequestData(request);
+		
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		
+		if (id!=null) {
+			FoodJJimLikeDAO jdao = FoodJJimLikeDAO.newInstance();
+			int jjim_count = jdao.foodJJimCount(id, Integer.parseInt(fno));
+			request.setAttribute("jjim_count", jjim_count);
+			int like_count = jdao.foodLikeOk(Integer.parseInt(fno), id);
+			int like_total = jdao.foodLikeCount(Integer.parseInt(fno));
+			request.setAttribute("like_count", like_count);
+			request.setAttribute("like_total", like_total);
+		}
+		// 레시피 읽기
+		String type = vo.getType();
+		int num = type.indexOf("/");
+		if (num>=0) {
+			type = type.replace("/", "|");
+		} else {
+			type = type.substring(0, type.indexOf(" "));
+		}
+		List<RecipeVO> rList = dao.foodRecipeData(type);
+		request.setAttribute("reList", rList);
 		
 		// 댓글 읽기
 		ReplyDAO rdao = ReplyDAO.newInstance();

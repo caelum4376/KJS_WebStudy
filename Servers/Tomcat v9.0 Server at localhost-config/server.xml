@@ -170,17 +170,20 @@
       
       
       
+      
+      
+      
+      
+      
+      
       <Context docBase="FirstProject" path="/FirstProject" reloadable="true" source="org.eclipse.jst.jee.server:FirstProject">
-      	<Resource auth="container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWaait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@211.238.142.122:1521:XE" username="hr"/>
-      </Context>
-      <Context docBase="JSPFinalProject" path="/JSPFinalProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPFinalProject">
       	<!-- Connection Pool 등록 -->
 		<Resource auth="container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWaait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@211.238.142.122:1521:XE" username="hr"/>
       </Context>
-      
-      
-      
-      
+      <Context docBase="JSPFinalProject" path="/JSPFinalProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPFinalProject">
+      <!-- Connection Pool 등록 -->
+		<Resource auth="container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWaait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@211.238.142.122:1521:XE" username="hr"/>
+	  </Context>
       </Host>
     </Engine>
   </Service>

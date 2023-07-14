@@ -32,4 +32,14 @@ public class AdminpageModel {
 		CommonModel.commonRequestData(request);
 		return "../main/main.jsp";
 	}
+	
+	@RequestMapping("adminpage/adminpage_reserve_ok.do")
+	public String admin_ok(HttpServletRequest request, HttpServletResponse response) {
+		
+		String no = request.getParameter("no");
+		ReserveDAO dao = ReserveDAO.newInstance();
+		dao.reservoOk(Integer.parseInt(no));
+		
+		return "redirect:../adminpage/adminpage_reserve.do";
+	}
 }

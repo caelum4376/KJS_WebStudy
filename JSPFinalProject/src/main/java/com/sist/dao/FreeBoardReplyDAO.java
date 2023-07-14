@@ -45,7 +45,7 @@ public class FreeBoardReplyDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 		return list; 
 	}
@@ -65,7 +65,7 @@ public class FreeBoardReplyDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 	}
 	
@@ -86,7 +86,7 @@ public class FreeBoardReplyDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 	}
 	
@@ -150,7 +150,7 @@ public class FreeBoardReplyDAO {
 			try {
 				conn.setAutoCommit(true);
 			} catch (Exception e) {}
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 	}
 	
@@ -208,7 +208,7 @@ public class FreeBoardReplyDAO {
 			try {
 				conn.setAutoCommit(true);
 			} catch (Exception e) {}
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 	}
 }

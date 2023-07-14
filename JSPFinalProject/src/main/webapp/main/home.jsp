@@ -59,7 +59,7 @@
       	<c:forEach var="vo" items="${ list }" varStatus="s"> 
       		<c:if test="${ s.index>=0 && s.index<12 }">
 		        <li>
-		          <figure><img class="radius-10 btmspace-10" src="${ vo.poster }" alt="">
+		          <figure><a href="../food/food_category_list.do?cno=${ vo.cno }"><img class="radius-10 btmspace-10" src="${ vo.poster }" alt=""></a>
 		            <figcaption><a href="../food/food_category_list.do?cno=${ vo.cno }">${ vo.title }</a></figcaption>
 		          </figure>
 		        </li>

@@ -46,7 +46,7 @@ public class RecipeDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 		
 		return list;
@@ -65,7 +65,7 @@ public class RecipeDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 		return count;
 	}
@@ -102,7 +102,7 @@ public class RecipeDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 		
 		return list;
@@ -122,7 +122,7 @@ public class RecipeDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 		return total;
 	}
@@ -158,7 +158,7 @@ public class RecipeDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 		
 		return list;
@@ -180,7 +180,7 @@ public class RecipeDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 		return total;
 	}
@@ -216,7 +216,7 @@ public class RecipeDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 		
 		return list;
@@ -239,7 +239,7 @@ public class RecipeDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			db.disConnection(conn, null);
+			db.disConnection(conn, ps);
 		}
 		return total;
 	}

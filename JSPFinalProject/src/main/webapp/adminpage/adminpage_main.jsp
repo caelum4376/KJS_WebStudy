@@ -13,9 +13,6 @@
 <link rel="stylesheet" href="../layout/styles/style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
-.container {
-	width: 1200px;
-}
 .row {
 	margin: 0px auto;
 	width: 960px;
@@ -26,10 +23,10 @@
 <div class="wrapper row3">
 	<main class="container clear">
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<jsp:include page="../adminpage/adminpage_nav.jsp"></jsp:include>
 			</div>
-			<div class="col-sm-9">
+			<div class="col-sm-8">
 				<%-- 변경 위치 --%>
 				<jsp:include page="${adminpage_jsp }"></jsp:include>
 			</div>
